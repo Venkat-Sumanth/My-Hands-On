@@ -35,7 +35,8 @@
 >>> 20>>2
 5
 ------------------------------------------------------------------------------------------------------------
-- In bitwise operations, the integers are first converted into binary and then operations are performed by bitwise operators on each bit or corresponding pair of bits.
+- In bitwise operations, the integers are first converted into binary and then operations are 
+  performed by bitwise operators on each bit or corresponding pair of bits.
 - The result is returned in decimal format by the bitwise operators.
 - There are six types of binary operators:-
 1. Complement (~)
