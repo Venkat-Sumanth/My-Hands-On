@@ -76,7 +76,7 @@ class B:
         print('Feature3 is working')
     def feature4(self):
         print('Feature4 is working')
-class C(A,B):        #child class/sub class #Here class c is inheriting all the feature of A,B
+class C(A,B):        #child class/sub class #Here class c is inheriting all the feature of A,B. 
     def feature5(self):
         print('Feature5 is working')
 a1=A()   #Here a1 is object and A() is constructor
