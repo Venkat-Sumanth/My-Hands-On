@@ -1,0 +1,32 @@
+- OOPs stands for Object-Oriented Programming.
+- Python supports different programming paradigms.
+  
+It supports:
+1)Functional Programming:
+  Functional programming is a programming paradigm in which we try to bind everything in a pure 
+  mathematical functions style. 
+
+2)Object Oriented Programming:
+  It is a programming pattern that rounds around an object or entity is called object-oriented programming.
+
+3)Procedure Oriented Programming:
+  Procedure-oriented programming contains a group of instructions known as function. 
+  There are multiple functions in the program.
+---------------------------------------------------------------------------------------------------------------
+-In the real world, everything is an object.
+e.g., 
+-to click the photo, the camera is an object.
+-to work in a company, their employees are objects.
+
+- Every object has two things:-
+1. Attributes (An object knows something)
+2. Behaviour (An object does something)
+
+- An object can also have multiple properties as well as multiple behaviours.
+- Variables are used to store data or attributes in an object.
+- Methods are used to define the behaviour of an object.
+- Methods in object-oriented programming are similar to functions.
+----------------------------------------------------------------------------------------------------------------
+-A class is a user-defined blueprint or prototype from which objects are created.
+-In programming, a class is used to write the design of a program.
+-Class is the design and an object is an instance.

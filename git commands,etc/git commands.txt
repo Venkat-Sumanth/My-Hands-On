@@ -1,0 +1,14 @@
+git commands:
+
+git init = to initialize the working directory
+
+1.git add .
+2.git commit -m "message"
+3.git push origin <branchname> = Local Repo -> Remote Repo
+4.git pull origin <branchname> = Remote Repo ->Local Repo
+
+-----------------------------------------------------------------------
+
+git checkout -b new_branch old_branch = to switch the newbranch
+
+git remote add (URL)=remote repo url link paste in url place
