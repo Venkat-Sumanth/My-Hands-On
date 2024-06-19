@@ -1,0 +1,133 @@
+>>>data = {1:'suma',2:'suman',4:'sumanth'} ->/*Dictionary use only curly brackets{}*/
+>>>data
+{1: 'suma', 2: 'suman', 4: 'sumanth'}
+>>>data[4]
+'sumanth'
+>>>data[2]
+'suman'
+>>>data[1]
+'suma'
+
+>>>data[3]
+Traceback (most recent call last):
+  File "<pyshell#5>", line 1, in <module>
+    data[3]
+KeyError: 3
+
+>>>data.get(1)
+'suma'
+>>>data.get(2)
+'suman'
+>>>data.get(4)
+'sumanth'
+>>>data.get(3)
+>>>print(data.get(3))
+None
+>>>data.get(1,'Not Found')
+'suma'
+>>>data.get(3,'Not Found')
+'Not Found'
+
+>>>keys = ['suma','suman','sumanth']
+>>>values = ['python','java','JS']
+>>>data = dict(zip(keys,values))
+>>>data
+{'suma': 'python', 'suman': 'java', 'sumanth': 'JS'}
+>>> data['suma']
+'python'
+
+>>> data['ram']
+Traceback (most recent call last):
+  File "<pyshell#18>", line 1, in <module>
+    data['ram']
+KeyError: 'ram'
+
+>>> data['sumaaa'] = 'CS'
+>>> data
+{'suma': 'python', 'suman': 'java', 'sumanth': 'JS', 'sumaaa': 'CS'}
+>>> del data['suma']
+>>> data
+{'suman': 'java', 'sumanth': 'JS', 'sumaaa': 'CS'}
+>>> prog={'JS':'Atom','CS':'VS','Python':['Pycharm','sublime'],'Java':{'JSE':'Netbeans','JEE':'Eclipse'}}
+>>> prog
+{'JS': 'Atom', 'CS': 'VS', 'Python': ['Pycharm', 'sublime'], 'Java': {'JSE': 'Netbeans', 'JEE': 'Eclipse'}}
+
+>>> prog['JS']
+'Atom'
+
+>>> prog['python']
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    prog['python']
+KeyError: 'python'
+
+>>> prog['Python'] 
+['Pycharm', 'sublime']
+>>> prog['CS']     
+'VS'
+>>> prog['Java']     
+{'JSE': 'Netbeans', 'JEE': 'Eclipse'}
+>>> prog['Java']['JEE']      
+'Eclipse'
+>>> prog['Java']['JSE']     
+'Netbeans'
+-----------------------------------------------------------------------------------------------------------
+-if we want to accessing the data by using key then we are using dictionary
+-Dictionary uses key and value pair
+-key and value in python 
+data={1:'suma',2:'suman',4:'sumanth'} 
+# 1 is key and suma is value and 
+  2 is key and suman is value and 
+  4 is key and sumanth is value
+  
+property of dictionary:
+-key must be immutable and unique
+ immutable means we can't change the value
+ unique means we can't repeat the key 
+-value can be anything
+-we can access the value by using key 
+-we can't access the value by using index
+-we can't access the value by using value
+
+fetching the value from dictionary
+-data[4] # we can access the value by using key 
+ here key is 4
+-data[3] # we get error because key is not present in dictionary
+
+get() method:
+-we can access the value by using get() method
+-if key is present in dictionary then it will return the value
+-if key is not present in dictionary then it will return None
+data.get(1) # getting value
+data.get(3) # not getting  anything 
+print(data.get(3)) # it will return None
+data.get(1,'Not Found') #Here if the value is there then it prints the value of key, else it prints not found -> Here value is there
+data.get(3,'Not Found') #Here if the value is there then it prints the value of key, else it prints not found -> Here value is not there
+
+use of zip() method:
+-- we can combine the two list by using zip() method
+-- it will return the tuple
+keys = ['suma','suman','sumanth']
+values=['Python','Java','JS']
+
+use of dict() method:
+-- we can convert the tuple into dictionary by using dict() method
+data=dict(zip(keys,values))
+data['suman']
+data['ram'] # it will give error because key is not present in dictionary
+
+add the value in dictionary:
+>>>data['sumaaa']='CS'
+>>>data
+
+delete the value from dictionary:
+>>>del data['suma']
+
+Nested Dictionary:
+-we can store the dictionary inside the dictionary
+prog={'JS':'Atom','CS':'VS','Python':['Pycharm','Sublime'],'Java':{'JSE':'Netbeans','JEE':'Eclipse'}}
+prog
+prog['JS']
+prog['python'][1]
+prog['Java']
+prog['Java']['JEE']
