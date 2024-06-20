@@ -1,0 +1,10 @@
+order of sql execution:
+
+select
+from
+join
+where
+group by
+having
+order by
+limit
