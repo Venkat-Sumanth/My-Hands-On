@@ -24,7 +24,7 @@ class Employee:
 
 emp1 = Employee('venkata','sumanth')
 
-emp1.fullname = 'subhash chandra'  #after writing the fullname setter, emp1 fullname works
+emp1.fullname = 'subhash chandra'  #after writing the @fullname setter, emp1 fullname works
 
 # emp1.first = 'Jim'  #we modified first name 'venkata' to 'Jim'
 
