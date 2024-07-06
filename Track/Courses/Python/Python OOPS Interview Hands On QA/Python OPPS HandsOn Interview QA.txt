@@ -108,3 +108,284 @@ Name Created= Interviewbit
 --------------------------------------------------------------------------------------------------------------------------------------------------
 6.Is it possible to call parent class without its instance creation?
   Yes, it is possible if the base class is instantiated by other child classes or if the base class is a static method
+
+Example: Method Overriding with Static Method
+Let's create a base class BaseClass with an instance method, a class method, and a static method. Then, we'll create a derived class 
+DerivedClass that overrides the instance method.
+
+class BaseClass:
+
+    def instance_method(self):
+        return "Base instance method"
+		
+    @classmethod
+    def class_method(cls):
+        return "Base class method"
+		
+    @staticmethod
+    def static_method():
+        return "Base static method"
+		
+class Derivedclass(BaseClass):
+    def instance_method(self):
+        return "derived instance method"
+		
+Base_instance = BaseClass()
+Derived_instance = Derivedclass()
+
+print(Base_instance.instance_method())
+print(Derived_instance.instance_method())
+
+print(BaseClass.class_method())
+print(Derivedclass.class_method())
+
+print(BaseClass.static_method())
+print(Derivedclass.static_method())
+
+output:
+Base instance method
+derived instance method
+
+Base class method
+Base class method
+
+Base static method
+Base static method
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+7.Are access specifiers used in python?
+  Python does not make use of access specifiers specifically like private, public, protected, etc. However, it does not derive this from any 
+  variables. It has the concept of imitating the behaviour of variables by making use of a single underscore(protected) or 
+  double underscore (private) as prefixed to the variable names. By default, the variables without prefixed underscores are public
+  
+Public: Members are accessible from outside the class.
+Protected: Members are accessible from within the class and its subclasses (conventionally marked with a single underscore _).
+Private: Members are accessible only within the class (marked with double underscores __).
+
+Example:
+class BaseClass():
+    def __init__(self):
+        self.public_var ="I am a public variable"
+        self._protected_var = "I am a protecetd variable"
+        self.__private_var = "I am  a private variable"
+
+    def public_method(self):
+        return "I am a public method"
+
+    def _protected_method(self):
+        return "I am a protected method"
+
+    def __private_method(self):
+        return "I am a private method"
+
+    def access_private_method(self):
+        return self.__private_method()
+
+class DerivedClass(BaseClass):
+    def __init__(self):
+        super().__init__()
+
+    def access_protected_method(self):
+        return self._protected_method()
+
+    def access_private_method_from_base(self):
+        return self.access_private_method()
+
+base_instance = BaseClass()
+derived_instance = DerivedClass()
+
+print(base_instance.public_var)
+print(base_instance.public_method())
+
+print(base_instance._protected_var)
+print(derived_instance._protected_method())
+
+print(base_instance.access_private_method())
+print(derived_instance.access_private_method_from_base())
+
+
+output:
+I am a public variable
+I am a public method
+
+I am a protecetd variable
+I am a protected method
+
+I am a private method
+I am a private method
+------------------------------------------------------------------------------------------------------------------------------------------------
+8. How do you access parent members in the child class?
+Following are the ways using which you can access parent class members within a child class:
+
+By using Parent class name: You can use the name of the parent class to access the attributes as shown in the example below:
+Example:
+class Parent(object):
+    def __init__(self,name):
+        self.name = name
+class child(Parent):
+    def __init__(self,name,age):
+        Parent.name = name
+        self.age = age
+    def display(self):
+        print(Parent.name,self.age)
+obj = child('Interviewbit', 52)
+obj.display()
+
+output:
+Interviewbit 52
+______________________________________________________________________________________________________________
+By using super(): The parent class members can be accessed in child class using the super keyword.
+
+Example:
+class Parent(object):
+    def __init__(self,name):
+        self.name = name
+class child(Parent):
+    def __init__(self,name,age):
+        super().__init__(name)
+        self.age = age
+    def display(self):
+        print(self.name,self.age)
+obj = child('Interviewbit',26)
+obj.display()
+
+output:
+Interviewbit 26
+----------------------------------------------------------------------------------------------------------------------
+9.How does inheritance work in python? Explain it with an example.
+  Inheritance gives the power to a class to access all attributes and methods of another class. It aids in code reusability 
+  and helps the developer to maintain applications without redundant code. The class inheriting from another class is a child 
+  class or also called a derived class. The class from which a child class derives the members are called parent class or superclass
+
+Single Inheritance: Child class derives members of one parent class. 
+Example:
+class ParentClass:
+    def parent_function(self):
+        print("I am parent calss function")
+class childclass(ParentClass):
+    def child_function(self):
+        print("I am child class function")
+obj1 = childclass()
+obj1.parent_function()
+obj1.child_function()
+
+Output:
+I am parent calss function
+I am child class function
+_____________________________________________________________________________________________________________________________________________________________
+Multi-level Inheritance: The members of the parent class, A, are inherited by child class which is then inherited by 
+                         another child class, B. The features of the base class and the derived class are further inherited 
+						 into the new derived class, C. Here, A is the grandfather class of class C.
+						 
+Example:
+class A:
+    def __init__(self,a_name):
+        self.a_name =a_name
+class B(A):
+    def __init__(self,b_name,a_name):
+        self.b_name = b_name
+        A.__init__(self,a_name)
+class C(B):
+    def __init__(self,c_name,b_name,a_name):
+        self.c_name = c_name
+        B.__init__(self,b_name,a_name)
+
+    def display_names(self):
+        print("A name:",self.a_name)
+        print("B name:",self.b_name)
+        print("C name",self.c_name)
+obj1 = C("child","intermediate","Parent")
+print(obj1.a_name)
+obj1.display_names()
+
+output:
+Parent
+A name: Parent
+B name: intermediate
+C name child
+______________________________________________________________________________________________________________________________________________________________________
+Multiple Inheritance: This is achieved when one child class derives members from more than one parent class. All features of 
+                      parent classes are inherited in the child class.
+					  
+Example:
+class Parent1:
+    def parent1_function(self):
+        print("I am first parent")
+class Parent2:
+    def parent2_function(self):
+        print("I am second parent")
+class child(Parent1,Parent2):
+    def child_function(self):
+        self.parent1_function()
+        self.parent2_function()
+obj1 = child()
+obj1.child_function()
+
+output:
+I am first parent
+I am second parent
+___________________________________________________________________________________________________________________________________________________________________________
+Hierarchical Inheritance: When a parent class is derived by more than one child class, it is called hierarchical inheritance.
+
+Example:
+class A:
+    def a_function(self):
+        print("I am from the parent class")
+class B(A):
+    def b_function(self):
+        print("I am from first child")
+class C(A):
+    def c_function(self):
+        print("I am from second class")
+obj1 = B()
+obj2 = C()
+obj1.a_function()
+obj1.b_function()
+obj2.a_function()
+obj2.c_function()
+
+output:
+I am from the parent class
+I am from first child
+I am from the parent class
+I am from second class
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10. How do you create a class in Python?
+(i)To create a class in python, we use the keyword “class” as shown in the example below:
+class InterviewbitEmployee:
+   def __init__(self, emp_name):
+       self.emp_name = emp_name
+	   
+(ii)To instantiate or create an object from the class 
+emp_1=InterviewbitEmployee("Mr. Employee")
+
+(iii)To access the name attribute, we just call the attribute using the dot operator as shown below:
+print(emp_1.emp_name)
+#Prints Mr. Employee
+
+(iv)To create methods inside the class, we include the methods under the scope of the class as shown below:
+class InterviewbitEmployee:
+   def __init__(self, emp_name):
+       self.emp_name = emp_name
+       
+   def introduce(self):
+       print("Hello I am " + self.emp_name)
+	   
+(V)The self parameter in the init and introduce functions represent the reference to the current class instance which is used for 
+   accessing attributes and methods of that class. The self parameter has to be the first parameter of any method defined inside the class. 
+   The method of the class InterviewbitEmployee can be accessed as shown below:
+emp_1.introduce()
+
+(vi)The overall program would look like this:
+class InterviewbitEmployee:
+   def __init__(self, emp_name):
+       self.emp_name = emp_name
+       
+   def introduce(self):
+       print("Hello I am " + self.emp_name)
+       
+# create an object of InterviewbitEmployee class
+emp_1 = InterviewbitEmployee("Mr Employee")
+print(emp_1.emp_name)    #print employee name
+emp_1.introduce()        #introduce the employee
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
