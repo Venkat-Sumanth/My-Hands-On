@@ -1,0 +1,110 @@
+1.How will you check if a class is a child of another class?
+  This is done by using a method called issubclass() provided by python. The method tells us if any class is a child of another 
+  class by returning true or false accordingly.
+  
+Example:
+class Parent(object):
+    pass
+class child(Parent):
+    pass
+print(issubclass(child,Parent))
+print(issubclass(Parent,child))
+
+Output:
+True
+False
+__________________________________________________________________________________________________________
+1.(i).We can check if an object is an instance of a class by making use of isinstance() method:
+ 
+Example:
+class child:
+    pass
+class parent:
+    pass
+obj1=child()
+obj2=parent()
+print(isinstance(obj1, child))
+print(isinstance(obj2, parent))
+print(isinstance(obj1, parent))
+print(isinstance(obj2, child))
+
+Output:
+True
+True
+False
+False
+----------------------------------------------------------------------------------------------------------------------------------------------------
+2.What is init method in python?
+  The init method works similarly to the constructors in Java. The method is run as soon as an object is instantiated. It is useful for 
+  initializing any attributes or default behaviour of the object at the time of instantiation.
+  
+Example:
+class InterviewbitEmployee:
+    def __init__(self,emp_name):
+        self.emp_name = emp_name
+    def introduce(self):
+        print('Hello, I am ',self.emp_name)
+emp = InterviewbitEmployee('Mr Employee')          # __init__ method is called here and initializes the object name with "Mr Employee"
+emp.introduce()
+
+Output:
+Hello, I am  Mr Employee
+------------------------------------------------------------------------------------------------------------------------------------------------	
+3.Why is finalize used?
+  Finalize method is used for freeing up the unmanaged resources and clean up before the garbage collection 
+  method is invoked. This helps in performing memory management tasks.
+------------------------------------------------------------------------------------------------------------------------------------------------
+4.Differentiate between new and override modifiers.
+  The new modifier is used to instruct the compiler to use the new implementation and not the base class function. 
+  The Override modifier is useful for overriding a base class function inside the child class
+  
+Example: Method Overriding
+class Animal(object):
+    def speak(self):
+        return "some generic sound"
+class Dog:
+    def speak(Animal):
+        return "woof! woof!"
+generic_animal = Animal()
+print(generic_animal.speak())
+dog = Dog()
+print(dog.speak())
+
+Output:
+some generic sound
+woof! woof!
+_______________________________________________________________________________________________________________________
+Super Function:
+If you want to call the method from the base class within the overridden method in the derived class, 
+you can use the super function.
+
+Example:
+class Animal(object):
+    def speak(self):
+        return "some generic sound"
+class Dog(Animal):
+    def speak(self):
+        base_sound = super().speak()
+        return(f"{base_sound},Specifically woof! woof!")
+dog = Dog()
+print(dog.speak())
+
+output:
+some generic sound,Specifically woof! woof!
+---------------------------------------------------------------------------------------------------------------------------------------------------
+5.How is an empty class created in python?
+  An empty class does not have any members defined in it. It is created by using the pass keyword (the pass command does nothing in python).
+  We can create objects for this class outside the class.
+
+Example:
+class EmptyClassDemo:
+    pass
+obj = EmptyClassDemo()
+obj.name = "Interviewbit"
+print("Name Created=", obj.name)	 
+
+Output:
+Name Created= Interviewbit
+--------------------------------------------------------------------------------------------------------------------------------------------------
+6.Is it possible to call parent class without its instance creation?
+  Yes, it is possible if the base class is instantiated by other child classes or if the base class is a static method
