@@ -388,4 +388,456 @@ emp_1 = InterviewbitEmployee("Mr Employee")
 print(emp_1.emp_name)    #print employee name
 emp_1.introduce()        #introduce the employee
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Python Interview Questions for Freshers
 
+1.What is __init__?
+  __init__ is a contructor method in Python and is automatically called to allocate 
+  memory when a new object/instance is created. All classes have a __init__ method associated with them. 
+  It helps in distinguishing methods and attributes of a class from local variables.
+  
+Example:
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def display(self):
+        print(f"Name: {self.name},Age: {self.age}")
+person1 = Person("sumanth",24)
+person1.display()
+person2 = Person('suma',33)
+person2.display()
+
+output:
+Name: sumanth,Age: 24
+Name: suma,Age: 33
+---------------------------------------------------------------------------------------------------------------------------------------
+2.What is the difference between Python Arrays and lists?
+  Arrays in python can only contain elements of same data types i.e., data type 
+  of array should be homogeneous. It is a thin wrapper around C language arrays 
+  and consumes far less memory than lists.
+  Lists in python can contain elements of different data types i.e., data type of 
+  lists can be heterogeneous. It has the disadvantage of consuming large memory.
+  
+  
+   In Python, arrays can be created using the array module from the standard library or by using lists, 
+   which are more commonly used in Python for handling collections of items.
+ 
+Example:Using the array Module
+The array module provides a space-efficient way of storing arrays of basic values. 
+
+import array as arr
+
+# Create an array of integers
+numbers = arr.array('i',[1,2,3,4,5])
+
+# Display the array elements
+print("Array elements")
+for num in numbers:
+    print(num)
+	
+# Add an element to the array	
+numbers.append(6)
+print("\nArray after appending 6:")
+print(numbers)
+
+# Remove an element from the array
+numbers.remove(3)
+print("\nArray after removing 3:")
+print(numbers)
+
+# Access an element by index
+print("\nElement at index 2:", numbers[2])
+
+
+# Modify an element by index
+numbers[2] = 10
+print("\nArray after modifying element at index 2:")
+print(numbers)
+
+output:
+Array elements
+1
+2
+3
+4
+5
+
+Array after appending 6:
+array('i', [1, 2, 3, 4, 5, 6])
+
+Array after removing 3:
+array('i', [1, 2, 4, 5, 6])
+
+Element at index 2: 4
+
+Array after modifying element at index 2:
+array('i', [1, 2, 10, 5, 6])
+___________________________________________________________________________________________________________________
+Example: Using Lists
+Lists in Python are more versatile and are commonly used for storing collections of items. Here's an example using lists:
+
+# Create a list of integers
+numbers = [1,2,3,4,5]
+
+# Display the list elements
+print("List of elements:")
+for num in numbers:
+    print(num)
+	
+# Add an element to the list	
+numbers.append(6)
+print("\nLists after appending 6:")
+print(numbers)
+
+# Remove an element from the list
+numbers.remove(3)
+print("\nList after removing 3:")
+print(numbers)
+
+# Access an element by index
+print("\nElement at index 2:", numbers[2])
+
+# Modify an element by index
+numbers[2] = 10
+print("\nList after modifying element at index 2:")
+print(numbers)
+
+output:
+List of elements:
+1
+2
+3
+4
+5
+
+Lists after appending 6:
+[1, 2, 3, 4, 5, 6]
+
+List after removing 3:
+[1, 2, 4, 5, 6]
+
+Element at index 2: 4
+
+List after modifying element at index 2:
+[1, 2, 10, 5, 6]
+---------------------------------------------------------------------------------------------------------
+4. What is slicing in Python?
+	As the name suggests, ‘slicing’ is taking parts of.
+	Syntax for slicing is [start : stop : step]
+	start is the starting index from where to slice a list or tuple
+	stop is the ending index or where to stop.
+	step is the number of steps to jump.
+	Default value for start is 0, stop is number of items, step is 1.
+	Slicing can be done on strings, arrays, lists, and tuples.
+
+Example:
+numbers = [0,1,2,3,4,5,6,7,8,9]
+print("Original list:", numbers)
+slice1 = numbers[2:6]
+print("slice from index 2 to 5:", slice1)
+slice2 = numbers[:6]
+print("slice from start to index 5:", slice2)
+slice3 = numbers[4:]
+print("slice from index 4 to end:", slice3)
+slice4 = numbers[1:8:2]
+print("slice from index 1 to 7 with step 2:", slice4)
+slice5 = numbers[-5:-1]
+print("slice with negative indeces (-5 to -1):", slice5)
+slice6 = numbers[::-1]
+print("Reverse the list:", slice6)
+partial_slice = numbers[::2]
+print("slice every second element from the list:", partial_slice)
+
+output:
+Original list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+slice from index 2 to 5: [2, 3, 4, 5]
+slice from start to index 5: [0, 1, 2, 3, 4, 5]
+slice from index 4 to end: [4, 5, 6, 7, 8, 9]
+slice from index 1 to 7 with step 2: [1, 3, 5, 7]
+slice with negative indeces (-5 to -1): [5, 6, 7, 8]
+Reverse the list: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+slice every second element from the list: [0, 2, 4, 6, 8]
+--------------------------------------------------------------------------------------------------------------------------------------------
+5.What is docstring in Python?
+  Documentation string or docstring is a multiline string used to document a specific code segment.
+  The docstring should describe what the function or method does.
+  
+  Docstrings in Python are used to document modules, classes, methods, and functions. 
+  They are written within triple quotes (""" or ''') and provide a convenient way to 
+  associate documentation with Python code.
+ 
+Example:
+def example_function(param1, param2):
+    """
+    This is an example function.
+
+    Parameters:
+     param1(int): The first parameter.
+     param2(str): The second parameter.
+
+     Returns:
+        str: A formatted string combining param1 and param2.
+    """
+    return f"{param1} - {param2}"
+class ExampleClass:
+    """
+    This is an example class
+
+    Attributes:
+    attribute1(int) : The first attribute.
+    attribute2(str) : The second attribute
+    """
+    def  __init__(self,attribute1,attribute2):
+         """
+        The constructor for ExampleClass
+
+         parameters:
+         attribute1(int): The first attribute
+         attribute2(str): The second attribute
+         """
+         self.attribute1 = attribute1
+         self.attribute2 = attribute2
+    def method_example(self,param):
+        """
+        An example method
+
+        Parameters:
+        param(int): A parameter for the method.
+
+        Returns:
+        str: A string stating the value of the parameter.
+        """
+print(example_function.__doc__)
+print(ExampleClass.__doc__)
+print(ExampleClass.__init__.__doc__)
+print(ExampleClass.method_example.__doc__)
+
+output:
+This is an example function.
+
+    Parameters:
+     param1(int): The first parameter.
+     param2(str): The second parameter.
+
+     Returns:
+        str: A formatted string combining param1 and param2.
+    
+
+    This is an example class
+
+    Attributes:
+    attribute1(int) : The first attribute.
+    attribute2(str) : The second attribute
+    
+
+        The constructor for ExampleClass
+
+         parameters:
+         attribute1(int): The first attribute
+         attribute2(str): The second attribute
+         
+
+        An example method
+
+        Parameters:
+        param(int): A parameter for the method.
+
+        Returns:
+        str: A string stating the value of the parameter.
+------------------------------------------------------------------------------------------------------------------------------------------
+6.What are unit tests in Python?
+  Unit test is a unit testing framework of Python.
+  Unit testing means testing different components of software separately. 
+  Can you think about why unit testing is important? Imagine a scenario, you are building 
+  software that uses three components namely A, B, and C. Now, suppose your software breaks 
+  at a point time. How will you find which component was responsible for breaking the software? Maybe 
+  it was component A that failed, which in turn failed component B, and this actually failed the software. 
+  There can be many such combinations.
+  This is why it is necessary to test each and every component properly so that we know which 
+  component might be highly responsible for the failure of the software        
+--------------------------------------------------------------------------------------------------------------------
+7.What is break, continue and pass in Python?
+  In Python, break, continue, and pass are control flow statements that are used to
+  alter the normal flow of execution in a loop or conditional statement.
+  
+Break: The break statement is used to terminate a loop prematurely when a certain 
+       condition is met. Once the break statement is encountered inside a loop, the 
+	   loop is immediately terminated and the program continues with the next statement after the loop.
+Example:
+for i in range(1,3):
+    if i==3:
+        break
+    print(i)
+	
+output:
+1
+2______________________________________________________________________________________________________________
+Continue:The continue statement is used to skip the current iteration of a loop 
+         and move on to the next iteration, without executing the remaining code in 
+		 the loop for the current iteration.	
+Example:
+for i in range(1,6):
+    if i==3:
+        continue
+    print(i)
+	
+output:
+1
+2
+4
+5____________________________________________________________________________________________________________
+Pass:The pass statement is a placeholder statement that is used to indicate 
+     that no action should be taken. It is often used as a placeholder when writing
+	 code that will be filled in later
+Example:
+for i in range(1,6):
+    if i==3:
+        pass
+    else:
+        print(i)
+
+output:
+1
+2
+4
+5
+------------------------------------------------------------------------------------------------------------------
+8.What is the use of self in Python?
+  Self is used to represent the instance of the class. With this keyword, you can access the 
+  attributes and methods of the class in python. It binds the attributes with the given arguments. 
+  self is used in different places and often thought to be a keyword. But unlike in C++, 
+  self is not a keyword in Python
+----------------------------------------------------------------------------------------------------------------
+9.What are global, protected and private attributes in Python?
+  Global variables are public variables that are defined in the global scope. 
+  To use the variable in the global scope inside a function, we use the global keyword.
+   
+  Protected attributes are attributes defined with an underscore prefixed to their 
+  identifier eg. _sara. They can still be accessed and modified from outside the class 
+  they are defined in but a responsible developer should refrain from doing so.
+  
+  Private attributes are attributes with double underscore prefixed to their identifier 
+  eg. __ansh. They cannot be accessed or modified from the outside directly and will result 
+  in an AttributeError if such an attempt is made
+------------------------------------------------------------------------------------------------------------------------------
+10.What are modules and packages in Python?
+   Modules and packages are fundamental concepts in Python that help organize 
+   and structure your code, making it more manageable, reusable, and maintainable. 
+   They enable you to break down large programs into smaller, more manageable pieces.
+
+Modules:A module in Python is simply a file containing Python code. A module can define functions, 
+        classes, and variables, and can also include runnable code. The filename of a module is 
+		the name of the module with the suffix .py added.
+Example:
+Creating a Module:
+Let's create a simple module named 'mymodule.py':
+
+# mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+def add(a, b):
+    return a + b
+	
+Using a Module:
+You can use the functions defined in 'mymodule.py' by importing the module in another Python script:
+
+# main.py
+import mymodule
+print(mymodule.greet("Alice"))  # Output: Hello, Alice!
+print(mymodule.add(3, 5))       # Output: 8
+
+You can also import specific functions or variables from a module:
+
+from mymodule import greet, add
+print(greet("Bob"))  # Output: Hello, Bob!
+print(add(10, 20))   # Output: 30
+__________________________________________________________________________________________________________
+Packages:A package is a way of structuring Python’s module namespace by using “dotted module names”. 
+         A package is essentially a directory that contains a special '__init__.py' file and 
+		 one or more module files. The '__init__.py' file can be empty or can include 
+		 code to initialize the package.
+Creating a Package:
+Let's create a package named mypackage with two modules: 'module1.py' and 'module2.py'.
+
+mypackage/
+    __init__.py
+    module1.py
+    module2.py
+
+# This file can be empty or include initialization code for the package
+'mypackage/__init__.py'
+
+-'mypackage/module1.py'
+def foo():
+    return "foo from module1"
+
+-'mypackage/module2.py'
+def bar():
+    return "bar from module2"
+
+Using a Package:
+You can import modules from a package using the dot notation:
+
+# main.py
+from mypackage import module1, module2
+print(module1.foo())  # Output: foo from module1
+print(module2.bar())  # Output: bar from module2
+
+You can also import specific functions or variables from the modules within the package:
+
+from mypackage.module1 import foo
+from mypackage.module2 import bar
+print(foo())  # Output: foo from module1
+print(bar())  # Output: bar from module2
+
+-Module: A single file containing Python code, with the .py extension. 
+         It can define functions, classes, and variables.
+-Package: A directory containing an __init__.py file and one or more module files. 
+          It allows the organization of modules into a hierarchical structure.
+-By using modules and packages, you can organize your code into logical and 
+ reusable components, making it easier to manage large projects and share code across 
+ different projects.
+ 
+Note:You can technically import the package as well, but alas, it doesn't import the modules
+     within the package to the local namespace, thus, it is practically useless.
+---------------------------------------------------------------------------------------------------------------------
+14.What is Scope in Python?
+   Every object in Python functions within a scope. A scope is a block of code where an 
+   object in Python remains relevant. Namespaces uniquely identify all the objects inside a program. 
+   However, these namespaces also have a scope defined for them where you could use their objects 
+   without any prefix. A few examples of scope created during code execution in Python are as follows:
+
+-A local scope: refers to the local objects available in the current function.
+-A global scope: refers to the objects available throughout the code execution since their inception.
+-A module-level scope: refers to the global objects of the current module accessible in the program.
+-An outermost scope: refers to all the built-in names callable in the program. The objects in 
+                     this scope are searched last to find the name referenced
+Note: Local scope objects can be synced with global scope objects using keywords such as global
+----------------------------------------------------------------------------------------------------------------------
+15.What is PEP 8 and why is it important?
+   PEP stands for Python Enhancement Proposal. A PEP is an official design document providing 
+   information to the Python community, or describing a new feature for Python or its processes. 
+   PEP 8 is especially important since it documents the style guidelines for Python Code. 
+   Apparently contributing to the Python open-source community requires you to follow these 
+   style guidelines sincerely and strictly.
+---------------------------------------------------------------------------------------------------------------------
+16.What is an Interpreted language?
+   An Interpreted language executes its statements line by line. Languages such as 
+   Python, Javascript, R, PHP, and Ruby are prime examples of Interpreted languages.
+   Programs written in an interpreted language runs directly from the source code, with no 
+   intermediary compilation step.
+
+The main difference between compiled and interpreted programming languages is how they process source code:
+
+Compiled languages:
+The source code is converted into machine code before execution. 
+The target machine then directly translates the program. Compilation is more
+time-consuming and resource-intensive
+
+Interpreted languages:
+The source code is executed directly by an interpreter without being compiled into 
+machine code first. The interpreter reads the source code, interprets each line, and 
+executes the corresponding instructions. This process happens on-the-fly, allowing the
+results of code to be seen immediately. Interpretation is more flexible and interactive 
+than compilation
+-----------------------------------------------------------------------------------------------------------------------
