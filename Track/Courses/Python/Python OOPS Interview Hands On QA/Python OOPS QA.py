@@ -39,13 +39,9 @@ print(dog.speak())
 class Animal(object):
     def speak(self):
         return "some generic sound"
-
-
 class Dog:
     def speak(Animal):
         return "woof! woof!"
-
-
 generic_animal = Animal()
 print(generic_animal.speak())
 dog = Dog()
@@ -223,6 +219,140 @@ obj1.a_function()
 obj1.b_function()
 obj2.a_function()
 obj2.c_function()
+
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def display(self):
+        print(f"Name: {self.name},Age: {self.age}")
+person1 = Person("sumanth",24)
+person1.display()
+person2 = Person('suma',33)
+person2.display()
+
+
+import array as arr
+numbers = arr.array('i',[1,2,3,4,5])
+print("Array elements")
+for num in numbers:
+    print(num)
+numbers.append(6)
+print("\nArray after appending 6:")
+print(numbers)
+numbers.remove(3)
+print("\nArray after removing 3:")
+print(numbers)
+print("\nElement at index 2:", numbers[2])
+numbers[2] = 10
+print("\nArray after modifying element at index 2:")
+print(numbers)
+
+
+numbers = [1,2,3,4,5]
+print("List of elements:")
+for num in numbers:
+    print(num)
+numbers.append(6)
+print("\nLists after appending 6:")
+print(numbers)
+numbers.remove(3)
+print("\nList after removing 3:")
+print(numbers)
+print("\nElement at index 2:", numbers[2])
+numbers[2] = 10
+print("\nList after modifying element at index 2:")
+print(numbers)
+
+numbers = [0,1,2,3,4,5,6,7,8,9]
+print("Original list:", numbers)
+slice1 = numbers[2:6]
+print("slice from index 2 to 5:", slice1)
+slice2 = numbers[:6]
+print("slice from start to index 5:", slice2)
+slice3 = numbers[4:]
+print("slice from index 4 to end:", slice3)
+slice4 = numbers[1:8:2]
+print("slice from index 1 to 7 with step 2:", slice4)
+slice5 = numbers[-5:-1]
+print("slice with negative indeces (-5 to -1):", slice5)
+slice6 = numbers[::-1]
+print("Reverse the list:", slice6)
+partial_slice = numbers[::2]
+print("slice every second element from the list:", partial_slice)
+
+
+
+
+def example_function(param1, param2):
+    """
+    This is an example function.
+
+    Parameters:
+     param1(int): The first parameter.
+     param2(str): The second parameter.
+
+     Returns:
+        str: A formatted string combining param1 and param2.
+    """
+    return f"{param1} - {param2}"
+class ExampleClass:
+    """
+    This is an example class
+
+    Attributes:
+    attribute1(int) : The first attribute.
+    attribute2(str) : The second attribute
+    """
+    def  __init__(self,attribute1,attribute2):
+         """
+        The constructor for ExampleClass
+
+         parameters:
+         attribute1(int): The first attribute
+         attribute2(str): The second attribute
+         """
+         self.attribute1 = attribute1
+         self.attribute2 = attribute2
+    def method_example(self,param):
+        """
+        An example method
+
+        Parameters:
+        param(int): A parameter for the method.
+
+        Returns:
+        str: A string stating the value of the parameter.
+        """
+print(example_function.__doc__)
+print(ExampleClass.__doc__)
+print(ExampleClass.__init__.__doc__)
+print(ExampleClass.method_example.__doc__)
+
+
+for i in range(1,3):
+    if i==3:
+        break
+    print(i)
+
+
+for i in range(1,6):
+    if i==3:
+        continue
+    print(i)
+
+
+for i in range(1,6):
+    if i==3:
+        pass
+    else:
+        print(i)
+
+
+
+
+
 
 
 
